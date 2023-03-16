@@ -5,6 +5,7 @@
 # Recommend
 
 1. Install django extension has django-html
+2. Install sqlite3 editor extension
 
 # Development
 

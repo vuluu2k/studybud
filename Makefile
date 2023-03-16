@@ -12,3 +12,5 @@ build:
 	docker-compose build app
 bash:
 	docker-compose run app bash
+requirements:
+	docker-compose run app pip freeze > requirements.txt
