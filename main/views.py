@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .models import Room, Topic, Message
-from .forms import RoomForm
+from .forms import RoomForm, UserForm
 
 # Create your views here.
 
@@ -121,7 +121,6 @@ def createRoom(request):
     if request.method == 'POST':
         topic_name = request.POST.get('topic')
         topic, created = Topic.objects.get_or_create(name=topic_name)
-
         Room.objects.create(
             host=request.user,
             topic=topic,
@@ -152,7 +151,6 @@ def updateRoom(request, pk):
     if request.method == 'POST':
         topic_name = request.POST.get('topic')
         topic, created = Topic.objects.get_or_create(name=topic_name)
-
         room.topic = topic
         room.name = request.POST.get('name')
         room.description = request.POST.get('description')
@@ -194,3 +192,11 @@ def deleteMessage(request, pk):
 
     context = {'obj': message}
     return render(request, 'main/delete.html', context)
+
+
+@login_required(login_url='login')
+def updateUser(request):
+    user = request.user
+    form = UserForm(instance=user)
+    context = {"form": form}
+    return render(request, 'main/update_user.html', context)
