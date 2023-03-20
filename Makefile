@@ -14,3 +14,5 @@ bash:
 	docker-compose run app bash
 requirements:
 	docker-compose run app pip freeze > requirements.txt
+install:
+	docker-compose run app pip install -r requirements.text
