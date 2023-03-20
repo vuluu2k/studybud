@@ -33,8 +33,10 @@
 					</div>
 
                     {% for field in form %}
-                        <label for="username">{{field.label}}</label>
-                        {{field}}
+                        <div class="form__group">
+                            <label for="username">{{field.label}}</label>
+                            {{field}}
+                        </div>
                     {% endfor %}
 					{% comment %} <div class="form__group">
 						<label for="username">Username</label>
