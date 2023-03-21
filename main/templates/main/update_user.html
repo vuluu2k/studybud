@@ -27,10 +27,10 @@
 			<div class="layout__body">
 				<form class="form" method="POST" action="">
                     {% csrf_token %}
-					<div class="form__group">
+					{% comment %} <div class="form__group">
 						<label for="profile_pic">Avatar</label>
 						<input id="profile_pic" name="profile_pic" type="file" />
-					</div>
+					</div> {% endcomment %}
 
                     {% for field in form %}
                         <div class="form__group">

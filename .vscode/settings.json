@@ -5,6 +5,7 @@
 		"**/*.html": "html",
 		"**/templates/*/*.html": "django-html",
 		"**/templates/*": "django-html",
+		"**/templates/*/components/*.html": "django-html",
 		"**/requirements{/**,*}.{txt,in}": "pip-requirements"
 	},
 	"[django-html]": {
