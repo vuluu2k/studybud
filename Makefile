@@ -12,7 +12,7 @@ build:
 	docker-compose build app
 bash:
 	docker-compose run app bash
-requirements:
-	pip freeze > requirements.txt
+package:
+	docker-compose run app pip freeze > requirements.txt
 install:
-	pip install -r requirements.text
+	docker-compose run app pip install -r requirements.txt

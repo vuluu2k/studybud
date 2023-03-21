@@ -16,8 +16,8 @@
             <form class="form" method="POST" action="">
               {% csrf_token %}
               <div class="form__group form__group">
-                <label for="room_name">Username</label>
-                <input id="username" name="username" type="text" placeholder="e.g. dev2000" />
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="e.g. dev2000@gmail.com" />
               </div>
               <div class="form__group">
                 <label for="password">Password</label>
@@ -70,37 +70,10 @@
               {% csrf_token %}
               {% for field in form %}
                 <div class="form__group form__group">
-                  <label for="fullname">{{field.label}}</label>
+                  <label for="id_{{field.label}}">{{field.label}}</label>
                   {{field}}
                 </div>
               {% endfor %}
-              {% comment %} <div class="form__group form__group">
-                <label for="fullname">Full Name</label>
-                <input id="fullname" name="fullname" type="text" placeholder="e.g. Dennis Ivy" />
-              </div>
-              <div class="form__group form__group">
-                <label for="room_name">Username</label>
-                <input id="username" name="username" type="text" placeholder="e.g. dennis_ivy" />
-              </div>
-              <div class="form__group">
-                <label for="password">Password</label>
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
-                />
-              </div>
-
-              <div class="form__group">
-                <label for="confirm_password">Confirm Password</label>
-                <input
-                  id="confirm_password"
-                  name="confirm_password"
-                  type="password"
-                  placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
-                />
-              </div> {% endcomment %}
               <button class="btn btn--main" type="submit">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
                   <title>lock</title>

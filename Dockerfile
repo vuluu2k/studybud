@@ -5,6 +5,8 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 
 RUN pip3 install -r requirements.txt
+RUN python -m pip install django-cors-headers
+RUN python -m pip install Pillow
 
 COPY . .
 

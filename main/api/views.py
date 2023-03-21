@@ -6,12 +6,13 @@ from .serializers import Room, RoomSerializer
 
 @api_view(['GET'])
 def getRoutes(request):
-    routes = [
-        'GET /api/v1',
-        'GET /api/v1/rooms',
-        'GET /api/v1/rooms/:id',
-    ]
-    return Response(routes)
+    if request.method == 'GET':
+        routes = [
+            'GET /api/v1',
+            'GET /api/v1/rooms',
+            'GET /api/v1/rooms/:id',
+        ]
+        return Response(routes)
 
 
 # GET /api/v1/rooms
@@ -33,7 +34,7 @@ def getRooms(request):
 def getRoom(request, pk):
     if request.method == 'GET':
         room = Room.objects.get(pk=pk)
-        serializer = RoomSerializer(room)
+        serializer = RoomSerializer(room, many=False)
         context = {
             'success': True,
             'message': 'get room successfully',
