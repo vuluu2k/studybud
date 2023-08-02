@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'corsheaders'
 ]
 
+CSRF_TRUSTED_ORIGINS = ['https://*.learn-it.site','https://*.127.0.0.1']
+
 AUTH_USER_MODEL = 'main.User'
 
 MIDDLEWARE = [
